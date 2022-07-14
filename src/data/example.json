@@ -2,19 +2,19 @@
 	"casos":
 		[
 			{
-				"img": "assets/img/img1.jpg",
+				"img": "assets/img1.jpg",
 				"title": "Company 1"
 			},
 			{
-				"img": "assets/img/img2.jpg",
+				"img": "assets/img2.jpg",
 				"title": "Company"
 			},
 			{ 
-				"img": "assets/img/img3.jpg",
+				"img": "assets/img3.jpg",
 				"title": "Company"
 			},
 			{
-				"img": "assets/img/img4.jpg",
+				"img": "assets/img4.jpg",
 				"title": "Company"
 			}
 		]

@@ -54,7 +54,7 @@ gulp.task('styles-dev', () => {
 		}))
 		.pipe(postcss(postcssPlugins))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('./public/assets/css/'))
+		.pipe(gulp.dest('./public/assets/'))
 		.pipe(server.stream({match: '**/*.css'}))
 });
 
@@ -87,11 +87,11 @@ gulp.task('styles-build', () => {
 		// 		//
 		// 	]
 		// }))
-		.pipe(gulp.dest('./public/assets/css/'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 gulp.task('pug-dev', () =>
-	gulp.src('./src/pug/pages/**/*.pug')
+	gulp.src('./src/pug/index.pug')
 		.pipe(plumber())
 		.pipe(data(function(file) {
 			return 	JSON.parse(fs.readFileSync(`${dir.src}/data/example.json`))
@@ -135,7 +135,7 @@ gulp.task('scripts-dev', () =>
 		}))
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('./public/assets/js'))
+		.pipe(gulp.dest('./public/assets/'))
 );
 
 gulp.task('scripts-build', () =>
@@ -158,7 +158,7 @@ gulp.task('scripts-build', () =>
 		}))
 		.pipe(sourcemaps.init({loadMaps: true}))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('./public/assets/js'))
+		.pipe(gulp.dest('./public/assets/'))
 );
 
 gulp.task('images-build', () => {
@@ -169,33 +169,33 @@ gulp.task('images-build', () => {
 			imagemin.optipng({optimizationLevel: 5}),
 			imagemin.svgo()
 		]))
-		.pipe(gulp.dest('./public/assets/img'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 gulp.task('images-dev', () => {
 	gulp.src('./src/img/**/**')
-		.pipe(gulp.dest('./public/assets/img'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 gulp.task('css-dev-vendor', () => {
 	gulp.src('./src/vendors/prismjs.css')
-		.pipe(gulp.dest('./public/assets/css'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 gulp.task('fonts-dev', () => {
 	gulp.src('./src/fonts/**/**')
-		.pipe(gulp.dest('./public/assets/fonts'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 gulp.task('videos-dev', () => {
 	gulp.src('./src/video/**/**')
-		.pipe(gulp.dest('./public/assets/video'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 
 gulp.task('audios-dev', () => {
 	gulp.src('./src/audio/**/**')
-		.pipe(gulp.dest('./public/assets/audio'))
+		.pipe(gulp.dest('./public/assets/'))
 });
 
 gulp.task('manifest', () => {
