@@ -5140,7 +5140,7 @@ var gsapComponent = exports.gsapComponent = function gsapComponent() {
 		backgroundColor: 'red'
 	});
 
-	// TO
+	// TO 
 
 	_gsap.gsap.to('#logo', {
 		duration: 2,

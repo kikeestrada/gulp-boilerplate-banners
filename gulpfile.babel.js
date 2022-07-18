@@ -22,7 +22,6 @@ import fs from 'fs'
 import uncss from 'gulp-uncss'
 import cleanCSS from 'gulp-clean-css'
 import stripCssComments from 'gulp-strip-css-comments';
-
 const server = browserSync.create();
 
 const dir = {
@@ -41,7 +40,6 @@ const postcssPlugins = [
 		}
 	})
 ];
-
 
 gulp.task('styles-dev', () => {
 	gulp.src('./src/scss/styles.scss')
@@ -177,42 +175,12 @@ gulp.task('images-dev', () => {
 		.pipe(gulp.dest('./public/assets/'))
 });
 
-gulp.task('css-dev-vendor', () => {
-	gulp.src('./src/vendors/prismjs.css')
-		.pipe(gulp.dest('./public/assets/'))
-});
-
-gulp.task('fonts-dev', () => {
-	gulp.src('./src/fonts/**/**')
-		.pipe(gulp.dest('./public/assets/'))
-});
-
-gulp.task('videos-dev', () => {
-	gulp.src('./src/video/**/**')
-		.pipe(gulp.dest('./public/assets/'))
-});
-
-
-gulp.task('audios-dev', () => {
-	gulp.src('./src/audio/**/**')
-		.pipe(gulp.dest('./public/assets/'))
-});
-
-gulp.task('manifest', () => {
-	gulp.src('./src/manifest.json')
-		.pipe(gulp.dest('./public/'))
-});
-gulp.task('sw', () => {
-	gulp.src('./src/sw.js')
-		.pipe(gulp.dest('./public/'))
-});
-
 gulp.task('sitemap', () => {
 	gulp.src('./public/**/*.html', {
 		read: false
 	})
 		.pipe(sitemap({
-			siteUrl: 'https://kikeestrada.github.io/gulp-boilerplate/' // remplazar por tu dominio
+			siteUrl: 'https://kikeestrada.github.io/gulp-boilerplate-banners/' // remplazar por tu dominio
 		}))
 		.pipe(gulp.dest('./public'))
 });
@@ -221,25 +189,17 @@ gulp.task('dev', [
 	'styles-dev', 
 	'pug-dev', 
 	'scripts-dev', 
-	'images-dev',
-	'audios-dev', 
-	'videos-dev', 
-	'fonts-dev', 
-	'manifest', 
-	'sw'
+	'images-dev'
 ], () => {
 	server.init({
 		server: {
 			baseDir: './public'
 		}
 	});
-
 	watch('./src/scss/**/**', 		() => gulp.start('styles-dev'));
 	watch('./src/js/**/**', 		() => gulp.start('scripts-dev', server.reload));
 	watch('./src/pug/**/**', 		() => gulp.start('pug-dev', server.reload));
 	watch('./src/img/**/**', 		() => gulp.start('images-dev'))
-	watch('./src/manifest.json', 	() => gulp.start('manifest'))
-	watch('./src/sw.js', 			() => gulp.start('sw'))
 });
 
 gulp.task('cache', () => {
@@ -250,7 +210,7 @@ gulp.task('cache', () => {
 		.pipe(gulp.dest('./public'))
 });
 
-gulp.task('humans', function () {
+gulp.task('humans',  () => {
 	gulp.src('./public/**/*.html')
 		.pipe(humans({
 			thanks: [

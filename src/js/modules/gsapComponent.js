@@ -8,7 +8,7 @@ export const gsapComponent = () => {
 		backgroundColor: 'red',
 	});
 
-	// TO
+	// TO 
 
 	gsap.to('#logo', {
 		duration: 2,
