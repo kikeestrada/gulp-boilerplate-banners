@@ -6,7 +6,7 @@
 -let height 			= 250
 
 doctype html
-html(lang='en' prefix='og: http://ogp.me/ns#', class='no-js')
+html(lang='en')
 	head
 		meta(charset="utf-8")
 		meta(name=pageDescription, content=content)
@@ -19,16 +19,16 @@ html(lang='en' prefix='og: http://ogp.me/ns#', class='no-js')
 			#banner-wrapper {
 				width: '#{width}px'; 
 				height: '#{height}px';
-				overflow: hidden;
-				visibility: hidden;
-
+				/*overflow: hidden;
+				visibility: hidden;*/
+				border: 1px solid black !important;
 			}
 		title= currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName
 	body
 		//- here start the Main Header
 		div(id='banner-wrapper')
-			h1 lorem
-			//- include ./components/canvas
-			//- include ./components/json-data
-			//- include ./components/markdown
+			h1 lorem 
+			include ./components/canvas
+			include ./components/json-data
+			include ./components/markdown
 		script(src="assets/scripts-min.js")

@@ -207,8 +207,6 @@ gulp.task('build', [
 	'scripts-build', 
 	'images-build', 
 	'cache', 
-	'sitemap', 
-	'humans', 
 	'styles-build'
 ], () => {
 	server.init({
