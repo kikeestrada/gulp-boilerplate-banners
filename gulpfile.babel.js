@@ -22,6 +22,7 @@ import fs from 'fs'
 import uncss from 'gulp-uncss'
 import cleanCSS from 'gulp-clean-css'
 import stripCssComments from 'gulp-strip-css-comments';
+import formatHtml from 'gulp-format-html';
 const server = browserSync.create();
 
 const dir = {
@@ -98,6 +99,7 @@ gulp.task('pug-dev', () =>
 			pretty: true,
 			basedir: './src/pug'
 		}))
+		.pipe(formatHtml())
 		.pipe(gulp.dest('./public'))
 );
 
@@ -175,16 +177,6 @@ gulp.task('images-dev', () => {
 		.pipe(gulp.dest('./public/assets/'))
 });
 
-gulp.task('sitemap', () => {
-	gulp.src('./public/**/*.html', {
-		read: false
-	})
-		.pipe(sitemap({
-			siteUrl: 'https://kikeestrada.github.io/gulp-boilerplate-banners/' // remplazar por tu dominio
-		}))
-		.pipe(gulp.dest('./public'))
-});
-
 gulp.task('dev', [
 	'styles-dev', 
 	'pug-dev', 
@@ -209,24 +201,6 @@ gulp.task('cache', () => {
 		}))
 		.pipe(gulp.dest('./public'))
 });
-
-gulp.task('humans',  () => {
-	gulp.src('./public/**/*.html')
-		.pipe(humans({
-			thanks: [
-				'Node (@nodejs on Twitter)',
-				'Gulp (@gulpjs on Twitter)'
-			],
-			site: [
-				'Standards: HTML5, CSS3',
-				'Components: Normalize.css, etc',
-				'Software: Web Storm'
-			],
-			note: 'Built with love by Enrique Estrada.'
-		}))
-		.pipe(gulp.dest('./public'))
-});
-
 
 gulp.task('build', [
 	'pug-build', 

@@ -47,6 +47,7 @@
 		"vinyl-source-stream": "^2.0.0",
 		"gulp-uncss": "^1.0.6",
 		"gulp-clean-css": "^2.4.0",
-		"gulp-strip-css-comments": "^1.2.0"
+		"gulp-strip-css-comments": "^1.2.0",
+		"gulp-format-html": "^1.2.5"
 	}
 }
