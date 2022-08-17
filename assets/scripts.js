@@ -5113,16 +5113,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 },{}],2:[function(require,module,exports){
 'use strict';
 
-var _swDetecter = require('./modules/swDetecter');
-
 var _gsapComponent = require('./modules/gsapComponent');
 
 (function () {
-	(0, _swDetecter.swDetecter)();
 	(0, _gsapComponent.gsapComponent)();
 })();
 
-},{"./modules/gsapComponent":3,"./modules/swDetecter":4}],3:[function(require,module,exports){
+},{"./modules/gsapComponent":3}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5134,96 +5131,10 @@ var _gsap = require('gsap');
 
 var gsapComponent = exports.gsapComponent = function gsapComponent() {
 
-	// SET
+	// code here
 
-	_gsap.gsap.set('#logo', {
-		backgroundColor: 'red'
-	});
-
-	// TO 
-
-	_gsap.gsap.to('#logo', {
-		duration: 2,
-		x: 300,
-		backgroundColor: 'green',
-		borderRadius: '20%',
-		border: '5px solid blue',
-		ease: 'linear'
-	});
-
-	// OBJECT
-
-	// let object = { value: 100 };
-	// gsap.to(object, {
-	//     duration: 2,
-	//     value: 1000,
-	//     onStart: () => { console.log('start', object.value); },
-	//     onUpdate: () => { console.log(object.value) },
-	//     onComplete: () => { console.log('end', object.value); }
-	// });
-
-	// FROM
-
-	// gsap.from('#logo', {
-	//     duration: 2,
-	//     backgroundColor: 'pink',
-	//     opacity: 0
-	// });
-
-	// STAGGER
-
-	// let tween = gsap.from('.circle', {
-	//     duration: .3,
-	//     y: -200, //'random(-500,500)',
-	//     scale: 0,
-	//     stagger: 0.5,
-	//     delay: 2 // it's better to use timeline
-	// });
-
-	// CONTROLS
-
-	// document.querySelector('.play').onclick = () => tween.play();
-	// document.querySelector('.pause').onclick = () => tween.pause();
-	// document.querySelector('.reverse').onclick = () => tween.reverse();
-	// document.querySelector('.slow').onclick = () => tween.timeScale(.2);
-
-	// TIMELINE 
-
-	// let tl = gsap.timeline({ repeat: 1, yoyo: true });
-	// tl.from('#logo', {
-	//     duration: 2,
-	//     rotate: 360
-	// });
-
-	// LABEL 
-
-	//tl.addLabel('label1', "+=1");
-
-	// tl.from('.circle', {
-	//     duration: .2,
-	//     scale: 0,
-	//     stagger: .5
-	// }, '+=1');
-
-	// REPEAT (-1 infinite | yoyo)
 };
 
-},{"gsap":1}],4:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-var swDetecter = exports.swDetecter = function swDetecter() {
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('./sw.js').then(function (reg) {
-			return console.log('Registro de SW exitoso', reg);
-		}).catch(function (err) {
-			return console.warn('Error al tratar de registrar el sw', err);
-		});
-	}
-};
-
-},{}]},{},[2]);
+},{"gsap":1}]},{},[2]);
 
 //# sourceMappingURL=scripts.js.map
